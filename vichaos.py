@@ -19,7 +19,7 @@ def inverse_permute(c: int, i: int, ki: int) -> int:
 def derive_key(password: str, salt: bytes) -> bytes:
     return hashlib.pbkdf2_hmac('sha256', password.encode(), salt, KDF_ITER, dklen=32)
 
-def vichaos_secure_encrypt(data: bytes, password: str) -> bytes:
+def encrypt(data: bytes, password: str) -> bytes:
     salt = os.urandom(SALT_SIZE)
     key = derive_key(password, salt)
     
@@ -40,7 +40,7 @@ def vichaos_secure_encrypt(data: bytes, password: str) -> bytes:
     
     return MAGIC_HEADER + salt + hmac_digest + cipher_bytes
 
-def vichaos_secure_decrypt(data: bytes, password: str) -> bytes:
+def decrypt(data: bytes, password: str) -> bytes:
     if not data.startswith(MAGIC_HEADER):
         raise ValueError("Invalid header")
 

@@ -1,6 +1,6 @@
 from .vichaos import (
-    vichaos_secure_encrypt,
-    vichaos_secure_decrypt,
+    encrypt,
+    decrypt,
     expand_key,
     permute,
     inverse_permute,
