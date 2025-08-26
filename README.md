@@ -11,7 +11,11 @@ vichaos-py is a Python project designed to simplify and enhance your development
 ## Installation
 
 ```bash
-pip install -r requirements.txt
+pip install vichaos-py
+```
+or, source directly
+```bash
+pip install .
 ```
 
 ## Usage
